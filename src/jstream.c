@@ -1,5 +1,5 @@
 //records.bin: rec_number(4bytes), data_type(1byte), data_length(4bytes), data (string, integer, boolean)
-//dictionary.bin: TLV tag, rec_number
+//dictionary.bin: TLV tag, lentg, value, rec_number
 
 #include <stdlib.h>
 #include <limits.h>
@@ -233,7 +233,7 @@ int write_dict(apr_table_t *dict, apr_file_t *dict_file) {
         value = table[i].val;
         record_number = atoi(value);
         len = sizeof(int);
-        apr_file_write(dict_file, &record_number, &len);
+        apr_file_write(dict_file, &record_number, &len); //write record number, integer 4 bytes
 
         //write TLV
         len = sizeof(char);
@@ -242,7 +242,7 @@ int write_dict(apr_table_t *dict, apr_file_t *dict_file) {
         len = sizeof(int);
         apr_file_write(dict_file, &key_len, &len); //write data length, integer 4 bytes
         len = key_len;
-        apr_file_write(dict_file, key, &len); //write data, string
+        apr_file_write(dict_file, key, &len); //write data, string n bytes
         len = sizeof(int);
         apr_file_write(dict_file, &record_number, &len); //write record number, integer 4 bytes
     }
