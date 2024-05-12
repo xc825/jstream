@@ -5,7 +5,6 @@ CFLAGS = -O3 -Wall -Wextra -Werror -std=c99 -pedantic
 LIBDIRS = -L/usr/local/apr/lib -L/usr/lib/x86_64-linux-gnu
 
 LIBS = -lapr-1
-#LIBS = -l/usr/local/apr/lib/libapr-1.so
 
 INC = -I/usr/local/apr/include/apr-1
 
