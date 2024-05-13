@@ -5,6 +5,8 @@ To compile, run make in _src/_ direc
 make
 ```
 
+Apache Portable Runtime library is required to build binary.
+
 To run compiled binary in _src/_ directory
 ```
 ./jstream
